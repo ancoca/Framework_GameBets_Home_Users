@@ -94,7 +94,7 @@ function showErrorPage($code = 0, $message = "", $http = "", $num_http = 0) {
             exit;
             break;
         case 1:
-            loadView($num_http);
+            loadView($num_http, "");
             break;
         case 2:
             $log = Log::getInstance();
@@ -108,6 +108,16 @@ function showErrorPage($code = 0, $message = "", $http = "", $num_http = 0) {
         case 3:
             paint_template_search($message);
             exit;
+            break;
+        case 4:
+            include_once(INC_PATH . "top.php");
+            include_once(INC_PATH . "header.php");
+            include_once(INC_PATH . "menu.php");
+
+            loadView($num_http, "");
+
+            include_once(INC_PATH . "footer.php");
+            include_once(INC_PATH . "bottom.php");
             break;
     }
 }

@@ -9,8 +9,8 @@
         <uri>result_users</uri>
     </function>
     <function>
-        <name>create_users</name>
-        <uri>create_users</uri>
+        <name>alta_users</name>
+        <uri>alta_users</uri>
     </function>
     <function>
         <name>upload_avatar_users</name>

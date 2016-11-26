@@ -7,7 +7,7 @@
 	}
 
 	function redirect($url){
-		die('<script>top.location.href="'.$url .'";</script>');
+		die('<script>window.location.href="'.$url .'";</script>');
 	}
 
 	function close_session() {

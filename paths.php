@@ -12,7 +12,10 @@
   define('PRODUCTS_LOG_DIR', $path . 'log/products/Site_Products_errors.log');
 
   //PRODUCTION
-  define('PRODUCTION', false);
+  define('PRODUCTION', true);
+
+  //PRETTY URL
+  define('URL_AMIGABLES', true);
 
   //MODEL
   define('MODEL_PATH', SITE_ROOT . 'model/');
@@ -29,7 +32,7 @@
   //VIEW
   define('CSS_PATH', SITE_PATH . 'view/css/');
   define('JS_PATH', SITE_PATH . 'view/js/');
-  define('INC_PATH', SITE_PATH . 'view/inc/');
+  define('INC_PATH', SITE_ROOT . 'view/inc/');
   define('IMAGES_PATH', SITE_PATH . 'view/images/');
 
   //MODULES

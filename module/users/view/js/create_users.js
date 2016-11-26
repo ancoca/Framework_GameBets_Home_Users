@@ -437,13 +437,13 @@ function validate_users() {
     var data_users_JSON = JSON.stringify(data);
 
     //Le enviamos el JSON al Controllador de PHP
-    $.post("../../users/create_users/",
-            {create_users : data_users_JSON},
-    function (response) { //Si la respuesta del controlador de PHP es positiva
-      //console.log(response);
-      if (response.success) {
-        window.location.href =response.redirect;
-      }
+    $.post("../../users/alta_users/",
+            {create_users: data_users_JSON},
+      function (response) { //Si la respuesta del controlador de PHP es positiva
+        //console.log(response);
+        if (response.success) {
+          window.location.href =response.redirect;
+        }
     }, "json").fail(function (xhr){
       //console.log(xhr);
       if (xhr.responseJSON.error.name_user){ //Si la respuesta del controlador de PHP es negativa, pintamos los errores

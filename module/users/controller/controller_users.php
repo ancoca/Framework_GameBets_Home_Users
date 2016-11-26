@@ -9,28 +9,28 @@
         }
 
         public function form_users() {
-          include_once("view/inc/top.php");
-          include_once("view/inc/header.php");
-          include_once("view/inc/menu.php");
+          include_once(INC_PATH . "top.php");
+          include_once(INC_PATH . "header.php");
+          include_once(INC_PATH . "menu.php");
 
           loadView('module/users/view/', 'create_users.php');
 
-          include_once("view/inc/footer.php");
-          include_once("view/inc/bottom.php");
+          include_once(INC_PATH . "footer.php");
+          include_once(INC_PATH . "bottom.php");
         }
 
         public function result_users() {
-          include_once("view/inc/top.php");
-          include_once("view/inc/header.php");
-          include_once("view/inc/menu.php");
+          include_once(INC_PATH . "top.php");
+          include_once(INC_PATH . "header.php");
+          include_once(INC_PATH . "menu.php");
 
-          loadView('modules/users/view/', 'result_users.php');
+          loadView('module/users/view/', 'result_users.php');
 
-          include_once("view/inc/footer.php");
-          include_once("view/inc/bottom.php");
+          include_once(INC_PATH . "footer.php");
+          include_once(INC_PATH . "bottom.php");
         }
 
-        public function create_users(){
+        public function alta_users(){
           //Si hay datos del formulario en el json enviado por el controlador de javascript
         	if(isset($_POST['create_users'])){
           //Validamos los datos correctamente
@@ -77,7 +77,7 @@
         				//redirigir a otra pagina con los datos de $arrArgument y $mensaje
         				$_SESSION['users'] = $arrArgument;
         				$_SESSION['msje'] = $mensaje;
-        				$callback="../../users/results_users/";
+        				$callback="../../users/result_users/";
 
         				$jsondata["success"] = true;
         				$jsondata["redirect"] = $callback;
@@ -95,7 +95,6 @@
         						$jsondata["success_avatar"] = true;
         						$jsondata["img_users"] = $result_avatar['datos'];
         				}
-        				header('HTTP/1.0 400 Bad error');
         				echo json_encode($jsondata);
         				exit;
         		}
@@ -184,7 +183,34 @@
         	}
         }
 
+        public function load_pepi_users() {
+          echo json_encode("HOLA");
+          exit;
+        	if(  (isset($_POST["load_provincias"])) && ($_POST["load_provincias"] == true)  ){
+        		$jsondata = array();
+            $json = array();
+
+            try {
+              $json = loadModel(MODEL_USERS_PATH, "users_model", "obtain_provincias");
+            } catch (Exception $e) {
+              $json = array();
+            }
+
+        		if($json){
+        			$jsondata["provincias"] = $json;
+        			echo json_encode($jsondata);
+        			exit;
+        		}else{
+        			$jsondata["provincias"] = "error";
+        			echo json_encode($jsondata);
+        			exit;
+        		}
+        	}
+        }
+
         public function load_provincias_users() {
+          echo json_encode("HOLA");
+          exit;
         	if(  (isset($_POST["load_provincias"])) && ($_POST["load_provincias"] == true)  ){
         		$jsondata = array();
             $json = array();

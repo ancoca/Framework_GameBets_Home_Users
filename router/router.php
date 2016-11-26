@@ -2,6 +2,7 @@
 	require_once("paths.php");
 	require_once 'autoload.php';
 
+	include(LOG_DIR);
 	include(UTILS_PATH . "common.inc.php");
 	include(UTILS_PATH . "filters.inc.php");
 	include(UTILS_PATH . "response_code.inc.php");
@@ -52,7 +53,7 @@
 
 									$obj = new $controllerClass;
 								} else {
-									showErrorPage(1, "", 'HTTP/1.0 400 Bad Request', 400);
+									showErrorPage(4, "", 'HTTP/1.0 400 Bad Request', 400);
 								}
 	            handlerfunction(((String)$module->name), $obj, $URI_function);
 	            break;
@@ -60,7 +61,7 @@
 	    }
 	    if (!$exist) {
 	        //die($URI_module . ' - Controlador no encontrado');
-	        showErrorPage(1, "", 'HTTP/1.0 400 Bad Request', 400);
+	        showErrorPage(4, "", 'HTTP/1.0 400 Bad Request', 400);
 	    }
 	}
 
@@ -77,7 +78,7 @@
 	    }
 	    if (!$exist) {
 	        //die($URI_function . ' - Funci&oacute;n no encontrada');
-	        showErrorPage(1, "", 'HTTP/1.0 400 Bad Request', 400);
+	        showErrorPage(4, "", 'HTTP/1.0 400 Bad Request', 400);
 	    } else {
 	    	//$obj->$event();
 			call_user_func(array($obj,$event));

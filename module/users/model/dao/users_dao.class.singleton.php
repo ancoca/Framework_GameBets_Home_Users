@@ -28,9 +28,9 @@ class users_dao {
         $town = $arrArgument['town'];
 
         $sql = "INSERT INTO users (name_user, passwd, avatar, named, surname, "
-              + "date_birthday, email, phone, country, province, town ) "
-              + "VALUES ('$name_user', '$passwd', '$avatar', '$named', '$surname', "
-              + "'$date_birthday', '$email', '$phone', '$country', '$province', '$town')";
+              . "date_birthday, email, phone, country, province, town ) "
+              . "VALUES ('$name_user', '$passwd', '$avatar', '$named', '$surname', "
+              . "'$date_birthday', '$email', '$phone', '$country', '$province', '$town')";
 
         return $db->ejecutar($sql);
     }

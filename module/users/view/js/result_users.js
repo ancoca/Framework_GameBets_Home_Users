@@ -1,7 +1,8 @@
 function load_users_ajax() {
     $.ajax({
-        type: 'GET',
-        url: "index.php?module=users&function=load_result_users&load=true",
+        type: 'POST',
+        url: "../../users/load_result_users/",
+        load: true,
         //dataType: 'json',
         async: false
     }).success(function (data) {
@@ -18,7 +19,7 @@ function load_users_ajax() {
 
 ////////////////////////////////////////////////////////////////
 function load_users_get_v1() {
-    $.get("index.php?module=users&function=load_result_users&load=true", function (data, status) {
+    $.post("../../users/load_result_users/",{"load":true}, function (data, status) {
         var json = JSON.parse(data);
         //$( "#content" ).html( json.msje );
         //alert("Data: " + json.user.usuario + "\nStatus: " + status);
@@ -29,7 +30,7 @@ function load_users_get_v1() {
 
 ////////////////////////////////////////////////////////////////
 function load_users_get_v2() {
-    var jqxhr = $.get("index.php?module=users&function=load_result_users&load=true", function (data) {
+    var jqxhr = $.post("../../users/load_result_users/",{"load":true}, function (data) {
         var json = JSON.parse(data);
         //console.log(json);
         mostrar_products(json);
@@ -60,7 +61,7 @@ function mostrar_products(data) {
   var parrafo = document.createElement("p");
 
   //Preparamos los datos que queremos mostrar
-  var msje = document.createElement("div");
+  var msje = document.createElement("span");
   msje.innerHTML += data.msje;
 
   //Pintamos los datos que hemos preparado antes

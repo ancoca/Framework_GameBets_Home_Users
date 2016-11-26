@@ -6,13 +6,13 @@
         }
 
         public function begin() {
-          include_once("view/inc/top.php");
-          include_once("view/inc/header.php");
-          include_once("view/inc/menu.php");
+          include_once(INC_PATH . "top.php");
+          include_once(INC_PATH . "header.php");
+          include_once(INC_PATH . "menu.php");
 
           loadView('module/main/view/', 'main.php');
 
-          include_once("view/inc/footer.php");
-          include_once("view/inc/bottom.php");
+          include_once(INC_PATH . "footer.php");
+          include_once(INC_PATH . "bottom.php");
         }
     }
